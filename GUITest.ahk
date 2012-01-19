@@ -15,7 +15,7 @@ Class CMyWindow Extends CGUI
 	txtField2			:= this.AddControl("Edit", "txtField2", "x209 y174 w104 h20 Disabled", "")
 	btnSave			:= this.AddControl("Button", "btnSave", "x319 y144 w75 h23", "Save")
 	btnLoad			:= this.AddControl("Button", "btnLoad", "x319 y115 w75 h23", "Load")
-	picTest			:= this.AddControl("Picture", "picTest", "x500 y500 w200 h-1", "D:\Projekte\Autohotkey\7plus\7+-128.ico")
+	picTest			:= this.AddControl("Picture", "picTest", "x500 y500 w200 h-1", A_ScriptDir "\Res\7+-w.ico")
 	prgTest			:= this.AddControl("Hotkey", "prgTest", "x300 y300 w100 h100", 50)
 	comboBox		:= this.AddControl("ComboBox", "comboBox", "x100 y400", "a|b|c")
 	statBar			:= this.AddControl("StatusBar", "statBar", "", "test")
@@ -33,13 +33,13 @@ Class CMyWindow Extends CGUI
 		this.txtField2.AddUpDown(2, 40)
 		this.lvItems.IndependentSorting := true
 		this.lvItems.Items.Add("", "test2", "test2") ;variadic function
-		this.lvItems.Items[1].SetIcon("D:\Projekte\Autohotkey\7plus\7+-128.ico", 1) ;Set icon and icon number
+		this.lvItems.Items[1].SetIcon(A_ScriptDir "\Res\7+-w.ico", 1) ;Set icon and icon number
 		this.lvItems.Items.Add("", "test3", "test3") ;variadic function
 		this.lvItems.Items[1].AddControl("Text", "test1", "x400 y600", "bla", 1)
 		this.lvItems.Items[2].AddControl("Text", "test1", "x500 y600", "bla", 1)
 		;~ GuiControl, % this.GUINum ":-Smooth", % this.prgTest.ClassNN
 		;~ this.prgTest.Vertical := 1
-		;~ this.lvItems.Items[1].Icon := "D:\Projekte\Autohotkey\7plus\7+-128.ico" ;Use first icon.
+		;~ this.lvItems.Items[1].Icon := A_ScriptDir "\Res\7+-w.ico" ;Use first icon.
 		;~ this.lvItems.Items[1].IconNumber := 2 ;Use 2nd icon. Beware that doing this will result in a second icon stored in the imagelist, so do not use this if you are concerned about memory
 		this.comboBox.Items.Add("d")
 		this.comboBox.Tooltip := "Blup" ;combobox consists of edit + drop down button control, this will show tooltip on both
@@ -52,18 +52,18 @@ Class CMyWindow Extends CGUI
 		this.sometab.Tabs[1].AddControl("Text", "tabtext", "", "text")
 		this.sometab.Tabs[1].Controls.tabtext.Link := 1
 		;~ msgbox % this.sometab.Tabs[1]._.TabNumber
-		this.sometab.Tabs[1].Icon := "C:\Program Files\Autohotkey\SciTE_beta5\AutoHotkey.exe"
-		this.sometab.Tabs[2].Icon := "D:\Projekte\Autohotkey\7plus\7+-128.ico"
+		this.sometab.Tabs[1].Icon := A_AHKPath
+		this.sometab.Tabs[2].Icon := A_ScriptDir "\Res\7+-w.ico"
 		this.lvItems.HotTrack := 1
 		this.statBar.Parts.Add("bla")
-		this.statBar.Parts[1].Icon := "C:\Program Files\Autohotkey\SciTE_beta5\AutoHotkey.exe"
+		this.statBar.Parts[1].Icon := A_AHKPath
 		this.statBar.Parts[1] := {text : "blup", width : 50}
 		this.statBar.Parts := [{Text : "blup", Width : 200}, {Text : "bla"}]
-		this.picTest.Picture := "C:\Program Files\Autohotkey\SciTE_beta5\AutoHotkey.exe"
+		this.picTest.Picture := A_AHKPath
 		T1 := this.tree.Items.Add("T1")
 		T11 := T1.Add("T11")
 		T11.AddControl("Text", "test1", "x100 y600", "hallo11")
-		T11.Icon := "C:\Program Files\Autohotkey\SciTE_beta5\AutoHotkey.exe"
+		T11.Icon := A_AHKPath
 		T12 := T1.Add("T12")
 		T12.AddControl("Text", "test1", "x100 y600", "bla")
 		T12.Icon := ""
@@ -101,7 +101,7 @@ Class CMyWindow Extends CGUI
 		sub2 := New CMenu("sub2")
 		sub2.AddMenuItem("blah", "blah")
 		this.Menu1.AddSubMenu("sub2", sub2)
-		sub2.Icon := "C:\Program Files\Autohotkey\SciTE_beta5\AutoHotkey.exe"
+		sub2.Icon := A_AHKPath
 		this.Menu1.DeleteMenuItem(1)
 		this.slider := this.AddControl("Slider", "slider", "x600 y200", 20)
 		;~ this.Menu(this.Menu1) ;It seems a menu can't be used for context and menu bar at once?
