@@ -5,13 +5,14 @@ return
 #include <CGUI>
 Class CMenuExample Extends CGUI
 {
-	BtnTest := this.AddControl("Button", "BtnTest", "", "")
-	BtnTest2 := this.AddControl("Button", "BtnTest2", "", "")
+	BtnTest := this.AddControl("Button", "BtnTest", "", "Button1 with static menu")
+	BtnTest2 := this.AddControl("Button", "BtnTest2", "", "Button2 with dynamic menu")
+	
 	__New(Title)
 	{
 		this.Title := Title
 		this.Resize := true
-		this.MinSize := "500x200"
+		this.MinSize := "200x100"
 		this.CloseOnEscape := true
 		this.DestroyOnClose := true
 		
@@ -33,12 +34,11 @@ Class CMenuExample Extends CGUI
 		Menu1[2].AddMenuItem("blup", "blup")
 		sub2 := New CMenu("sub2")
 		sub2.AddMenuItem("blah", "blah")
-		
 		;Adding an existing menu as submenu
 		Menu1.AddSubMenu("sub2", sub2)
 		
 		;Setting a menu's icon
-		sub2.Icon := "C:\Program Files\Autohotkey\SciTE_beta5\AutoHotkey.exe"
+		sub2.Icon := A_AHKPath
 		
 		;Deleting a menu item
 		Menu1.DeleteMenuItem(1)
@@ -58,9 +58,19 @@ Class CMenuExample Extends CGUI
 			this.DynamicMenu.DisposeMenu()
 		
 		;Create the menu and show it
-		this.DynamicMenu := New CMenu("test")
+		this.DynamicMenu := New CMenu("test2")
 		this.DynamicMenu.AddMenuItem("MenuItem", "MenuItem")
 		this.ShowMenu(this.DynamicMenu)
+	}
+	
+	BtnTest_Click()
+	{
+		MsgBox % "You left-clicked Button1`nTry right click!"
+	}
+	
+	BtnTest2_Click()
+	{
+		MsgBox % "You left-clicked Button2`nTry right click!"
 	}
 	
 	;The functions below are called when the matching menu item was selected.
