@@ -29,7 +29,6 @@ Class CBasicWindow Extends CGUI
 		this.progBar.Max := 1000
 		this.progBar.Value := 0
 		this.progBar.Width := 160
-		this.progBar.Style := 0x800000
 		;Show the window
 		this.Show("")
 	}
